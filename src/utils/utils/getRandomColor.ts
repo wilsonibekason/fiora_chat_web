@@ -1,20 +1,20 @@
-import randomColor from 'randomcolor';
+import randomColor from "randomcolor";
 
-type ColorMode = 'dark' | 'bright' | 'light' | 'random';
+type ColorMode = "dark" | "bright" | "light" | "random";
 
 /**
- * 获取随机颜色, 刷新页面不变
+ * 获取随机颜色, 刷新页面不变 Get a random color, refresh the page unchanged
  * @param seed when passed will cause randomColor to return the same color each time
  */
-export function getRandomColor(seed: string, luminosity: ColorMode = 'dark') {
-    return randomColor({
-        luminosity,
-        seed,
-    });
+export function getRandomColor(seed: string, luminosity: ColorMode = "dark") {
+  return randomColor({
+    luminosity,
+    seed,
+  });
 }
 
 type Cache = {
-    [key: string]: string;
+  [key: string]: string;
 };
 
 const cache: Cache = {};
@@ -25,12 +25,12 @@ const cache: Cache = {};
  * @param luminosity 亮度
  */
 export function getPerRandomColor(
-    seed: string,
-    luminosity: ColorMode = 'dark',
+  seed: string,
+  luminosity: ColorMode = "dark"
 ) {
-    if (cache[seed]) {
-        return cache[seed];
-    }
-    cache[seed] = randomColor({ luminosity });
+  if (cache[seed]) {
     return cache[seed];
+  }
+  cache[seed] = randomColor({ luminosity });
+  return cache[seed];
 }
