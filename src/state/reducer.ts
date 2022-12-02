@@ -95,4 +95,66 @@ export interface State {
   linksmans: LinkmansMap;
   //   focus
   focus: string;
+  // connect
+  connect: boolean;
+  // guests
+  guests: GroupMember[];
+  // messages
+  status: {
+    ready: boolean;
+    //
+    loginRegisterDialogVisible: boolean;
+    //
+    theme: string;
+    //
+    primaryColor: string;
+    //
+    primaryTextColor: string;
+    //
+    backgroundImage: string;
+    //
+    aero: boolean;
+    //
+    soundSwitch: boolean;
+    //
+    sound: string;
+    //
+    notificationSwitch: boolean;
+    //
+    voiceSwitch: boolean;
+    //
+    selfVoiceSwitch: boolean;
+    /**
+     *
+     * singleColor
+     * fixedColor
+     * randomColor
+     */
+    tagColorMode: string;
+    //
+    sidebarVisible: boolean;
+    //
+    functionBarAndLinkmanListVisible: boolean;
+    //
+    enableSearchExpression: boolean;
+    //
+  };
 }
+
+/**
+ *
+ * @param linkman
+ */
+
+function getLinkmansMap(linkmans: Linkman[]) {
+  return linkmans.reduce((map: LinkmansMap, linkman) => {
+    map[linkman._id] = linkman;
+    return map;
+  }, {});
+}
+
+
+/**
+ * 
+ * @param messages
+ */

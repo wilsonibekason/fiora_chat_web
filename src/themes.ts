@@ -9,7 +9,7 @@ type Themes = {
     aero: boolean;
   };
 };
-
+  
 const themes: Themes = {
   default: {
     primaryColor: "74, 144, 226",
